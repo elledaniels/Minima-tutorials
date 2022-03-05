@@ -87,3 +87,5 @@
 ------------------------------------------------------------
 ##### Ask for 1 minima on minima discord "#app-chat" channel and someone DM you and ask for your address to send 1 minima, once finished the tutorial, do the same to help other people to learn, that's the minima community philosophy, help each other.
 ------------------------------------------------------------
+
+by @JOSUA
