@@ -25,3 +25,5 @@ tokencreate name:JOSUA amount:1000 decimals:4
 send address:0xB468DFB25129817205BF33772379648837FC9E2483C9280EE8A666145530B426 amount:55.78 tokenid:0x5BA68CC3968CD2EC458C1832ADD1F9796952DD88A305079566CA6E73AE6D138C
 ```
 ------------------------------------------------------------
+##### Ask for some tokens on minima discord "#app-chat" channel and someone DM you and ask for your address to send 1 minima, once finished the tutorial, do the same to help other people to learn, that's the minima community philosophy, help each other.
+------------------------------------------------------------
