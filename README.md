@@ -12,4 +12,4 @@ A series of Minima blockchain tutorials, from basic to complex
   - You need some tokens to do the tutorial, so ask someone to send some tokens to you on the channel minima discord channel "#app-chat", to your wallet address
  
 - **Create Token Tutorial part 1** 
-  - This is the first part of two on how to use minima terminal commands to teach and explain how to create Tokens using minima coins
+  - This is the first part of two on how to use minima terminal commands to teach and explain how to create Tokens using minima coins, and also the first part to introduce what transaction are and how to check and understand the console output response to the create token command.
