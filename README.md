@@ -21,4 +21,9 @@ A series of Minima blockchain tutorials, from basic to complex
   - This is the second part on how to use minima terminal commands to teach and explain how to create Tokens using minima coins, but using extra parameters to add more info to the Token and also a simple smart contract (script) and using state variables.
     - **--------->  UNDER CONSTRUCTION  <-------------**
 
+- **Tutorial 5: Create Simple DAO**
+  - This is the first part of several where we try to build a simpleDAO (People with a governance token) will have the power to vote a proposal (First part will be a fixed proposal).
+  - We will use Tokens, smart contracts, some html, javascript or GODOT prefixed environment to test it.
+        - **--------->  UNDER CONSTRUCTION  <-------------**
+
 by @JOSUA
