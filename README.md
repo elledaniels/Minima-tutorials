@@ -18,12 +18,13 @@ A series of Minima blockchain tutorials, from basic to complex
   - <https://github.com/elledaniels/Minima-tutorials/blob/main/tutorials/basic/3-Create_token-tutorial-1.md>
 
 - **Tutorial 4: Create Token  part 2**
-  - This is the second part on how to use minima terminal commands to teach and explain how to create Tokens using minima coins, but using extra parameters to add more info to the Token and also a simple smart contract (script) and using state variables.
+  - This is the second part on how to use minima terminal commands to teach and explain how to create Tokens using minima coins, but using extra parameters to add more info to the Token using the JSON structure to give more info than a simple name.
+  - We are going to create 2 tokens that will represent power tokens in a very simple game, a game made with GODOT engine that will react when the node where the game is running receive one of those power tokens in the wallet address of the node, making the game react and changing the color and the size of the objects or player with the properties of the token's power received.
     - **--------->  UNDER CONSTRUCTION  <-------------**
 
 - **Tutorial 5: Create Simple DAO**
   - This is the first part of several where we try to build a simpleDAO (People with a governance token) will have the power to vote a proposal (First part will be a fixed proposal).
   - We will use Tokens, smart contracts, some html, javascript or GODOT prefixed environment to test it.
         - **--------->  UNDER CONSTRUCTION  <-------------**
-
+{}
 by @JOSUA
