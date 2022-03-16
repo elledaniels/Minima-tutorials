@@ -43,4 +43,233 @@
     "total":1
   },
 ```
--4: ----under construction.....
+-4: **SPLITTER function** make the game play be smooth without UTXO problems.
+  - So as we already talked and verified how UTXO system works on the Tutorial 1, and the "problems" that can cause if you want to send minimas or tokens before your receive the change back, we made a splitter function in order the game can be played smoothly without worrying about UTXO.
+  - What does **Splitter** function do?
+    - The splitter function uses transactions commands to split an amount of minimas in less minimal units, so lets give you an easy example: suppose somebody send you 100 minimas in whole single unit, but you want those 100 minimas in 4 separated units of 25 minimas each one,
+    if you should have to do it manually you should have to send yourself 25 minimas, wait for the send(uses transactions internally) command is done and your change is back(75) to yourself, and this 4 times more, so that is what splitter function does but with only one transaction.
+
+  - Lets going to define the fields and their meaning of the Splitter function, some of they are very important, **and you need to be carefully and pay attention on what you do !!**.
+  The Splitter function uses transactions internally, that means that the change back have to be managed by yourself instead of when you use "send" command, it does all this automatically for you.
+   - **Coind ID ** this field identify which coin of all you coins you have (minimal unit) are you going to use to split in smaller units.
+   How can we know the minimal units of coins we have as the command "balance" only shows the sum of them?
+    - The solution, a new minima command: ` coins relevant:true ` , a minima node keeps track of all coins, tokens or scripts related to your node, so this command shows precisely that, all coins you have and their wallet addresses and more info, but we are only interested in three fields ("coinid, amount and tokenid "), in our case, the goal is to split 1 minima into smaller units, so we need to focus on find a coinid which amount is 1 or bigger and his tokenid is 0x00(means is a Minima token).
+    So after executing the command if we look for the output we can find somthing like the following output, we are going to choose the second one as the first one only have "0.33" minimas and we need more, so the second one has "91.815999" minimas.
+    So thats it, we need the **coinid** and the **amount**(It will be used to calculate the change back internally) and the **address** (Later will be the origin field)
+    **coinid: 0x59AE319984F247716E7D10F4AD981D95BEECC7BE536667F9B2BE7B3E8DA583C4**
+    ´´´
+    coins relevant:true
+    {
+      "command":"coins",
+      "params":{
+        "relevant":"true"
+      },
+      "status":true,
+      "response":[{
+        "coinid":"0x9E10E5023CC9ED66B7B712CA0943EF6928035CDD5A13DAE643396F30D9275BFD",
+        "amount":"0.33999999999999999999999999999999999999999999",
+        "address":"0xE84F3B42F468C93106DAEDAAA9D0E733DD2A6225EE81D448931F227D1C06976B",
+        "tokenid":"0x00",
+        "token":null,
+        "floating":false,
+        "storestate":false,
+        "state":[],
+        "mmrentry":"734",
+        "spent":false,
+        "created":"203729"
+      },
+      {
+        "coinid":"0x59AE319984F247716E7D10F4AD981D95BEECC7BE536667F9B2BE7B3E8DA583C4", <---------------
+        "amount":"91.815999",                      <------------------
+        "address":"0xE278554F3843D7DD8CDD8AA5E9556C0DC2D7B07C37A8403CE0AFDDE56E8A5EFC", <--------- Origin
+        "tokenid":"0x00",                          <------------------
+        "token":null,
+        "floating":false,
+        "storestate":false,
+        "state":[],
+        "mmrentry":"728",
+        "spent":false,
+        "created":"203728"
+      },
+    ´´´
+
+   - **Coin Amount** as we talk before it it is about to the amount of minimas we have on the coind we are going to use for split into smaller units so we choose **Coin Amount:91.815999** (note, only choose 8 decimals max)
+
+   -**Minimal Unit** this field is the smaller unit that we are going to use to split the 1 minima into, the only values allowed are 0.1 and 0.01 other values than that will not trigger the function, as the game only use **0.1** and **0.01** units for sending minimas when a gemm is collected.
+
+   -**Receiver** this field is the wallet address who will receive the small units of 1 minima, it can be your own node if you have the game installed on it or it has to be the node where the game is installed.
+   -**Origin** this field is the wallet address where the Minimas to split are located, explained on the first field **Coin ID**
+   **origin: 0xE278554F3843D7DD8CDD8AA5E9556C0DC2D7B07C37A8403CE0AFDDE56E8A5EFC**
+   - So now that all parameters are set press **RUN** and if everything is right you should see a very long results like this :
+´´´
+   [ {
+"command": "txncreate",
+"params": {
+"id": "303657912"
+},
+"response": {
+"id": "303657912",
+"transaction": {
+"inputs": [  ],
+"linkhash": "0x00",
+"outputs": [  ],
+"state": [  ],
+"transactionid": "0x00"
+},
+"witness": {
+"mmrproofs": [  ],
+"scripts": [  ],
+"signatures": [  ]
+}
+},
+"status": true
+}, {
+"command": "txninput",
+"params": {
+"coinid": "0x0A54066F3B7B3E18E09D63A00E4E7FBF4C0350E6E8FCF6EFBB5823518FC91DE9",
+"id": "303657912"
+},
+"response": {
+"id": "303657912",
+"transaction": {
+"inputs": [ {
+"address": "0xF9039E7221240901EF5232A65CFBFD87995FC1E329559E7E5668BCA4DC743864",
+"amount": "87.393999",
+"coinid": "0x0A54066F3B7B3E18E09D63A00E4E7FBF4C0350E6E8FCF6EFBB5823518FC91DE9",
+"created": "203728",
+"floating": false,
+"mmrentry": "730",
+"spent": false,
+"state": [  ],
+"storestate": false,
+"token": null,
+"tokenid": "0x00"
+} ],
+"linkhash": "0x00",
+"outputs": [  ],
+"state": [  ],
+"transactionid": "0x00"
+},
+"witness": {
+"mmrproofs": [  ],
+"scripts": [  ],
+"signatures": [  ]
+}
+},
+"status": true
+}, {
+"command": "txnoutput",
+"params": {
+"address": "0x5EC92829DC40F6FECBAEA1DC8530AD480CCF6A97959082F3400C281A4B2A0668",
+"amount": "0.1",
+"id": "303657912"
+},
+"response": {
+"id": "303657912",
+"transaction": {
+"inputs": [ {
+"address": "0xF9039E7221240901EF5232A65CFBFD87995FC1E329559E7E5668BCA4DC743864",
+"amount": "87.393999",
+"coinid": "0x0A54066F3B7B3E18E09D63A00E4E7FBF4C0350E6E8FCF6EFBB5823518FC91DE9",
+"created": "203728",
+"floating": false,
+"mmrentry": "730",
+"spent": false,
+"state": [  ],
+"storestate": false,
+"token": null,
+"tokenid": "0x00"
+} ],
+"linkhash": "0x00",
+"outputs": [ {
+"address": "0x5EC92829DC40F6FECBAEA1DC8530AD480CCF6A97959082F3400C281A4B2A0668",
+"amount": "0.1",
+"coinid": "0x00",
+"created": "0",
+"floating": false,
+"mmrentry": "0",
+"spent": false,
+"state": [  ],
+"storestate": true,
+"token": null,
+"tokenid": "0x00"
+} ],
+"state": [  ],
+"transactionid": "0x00"
+},
+"witness": {
+"mmrproofs": [  ],
+"scripts": [  ],
+"signatures": [  ]
+}
+},
+"status": true
+}, {
+"command": "txnoutput",
+"params": {
+"address": "0x5EC92829DC40F6FECBAEA1DC8530AD480CCF6A97959082F3400C281A4B2A0668",
+"amount": "0.1",
+"id": "303657912"
+},
+"response": {
+"id": "303657912",
+"transaction": {
+"inputs": [ {
+"address": "0xF9039E7221240901EF5232A65CFBFD87995FC1E329559E7E5668BCA4DC743864",
+"amount": "87.393999",
+"coinid": "0x0A54066F3B7B3E18E09D63A00E4E7FBF4C0350E6E8FCF6EFBB5823518FC91DE9",
+"created": "203728",
+"floating": false,
+"mmrentry": "730",
+"spent": false,
+"state": [  ],
+"storestate": false,
+"token": null,
+"tokenid": "0x00"
+} ],
+"linkhash": "0x00",
+"outputs": [ {
+"address": "0x5EC92829DC40F6FECBAEA1DC8530AD480CCF6A97959082F3400C281A4B2A0668",
+"amount": "0.1",
+"coinid": "0x00",
+"created": "0",
+"floating": false,
+"mmrentry": "0",
+"spent": false,
+"state": [  ],
+"storestate": true,
+"token": null,
+"tokenid": "0x00"
+}, {
+"address": "0x5EC92829DC40F6FECBAEA1DC8530AD480CCF6A97959082F3400C281A4B2A0668",
+"amount": "0.1",
+"coinid": "0x00",
+"created": "0",
+"floating": false,
+"mmrentry": "0",
+"spent": false,
+"state": [  ],
+"storestate": true,
+"token": null,
+"tokenid": "0x00"
+} ],
+"state": [  ],
+"transactionid": "0x00"
+},
+"witness": {
+"mmrproofs": [  ],
+"scripts": [  ],
+"signatures": [  ]
+}
+},
+"status": true
+}, {
+"command": "txnoutput",
+"params": {
+"address": "0x5EC92829DC40F6FECBAEA1DC8530AD480CCF6A97959082F3400C281A4B2A0668",
+"amount": "0.1",
+"id": "303657912"
+
+...... and so on...........
+´´´
+-5: **Thats it** now if you run the command ´ coins relevant:true ´ you should see lots of coinid with 0.1 or 0.01 in the response, that means , it all went successfully and now you can play the game fluently without interruptions becouse of UTXO system has been tricked.
