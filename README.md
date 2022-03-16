@@ -27,11 +27,11 @@ A series of Minima blockchain tutorials, from basic to complex
     - **A Game** where we will see how to change the player's color and size when a token it is send to the minima node, where a player can collect gems, the game steals you a 0.01 minima or 0.1 minima depending on the collected gem.
     - **A Terminal** like minima terminal where you can execute any minima command like(tokencreate) and copy the results of the execution of the commands.
     - **A Splitter** function that will split 1 minima into small units of 0.1 or 0.01 units with only one transaction to avoid UTXO "problems", as every time you collect a gem a terminal send command is executed with an amount of 0.1 or 0.01 minimas.
-    - **--------->  UNDER CONSTRUCTION  <-------------**
+    - <https://github.com/elledaniels/Minima-tutorials/blob/main/tutorials/basic/4-Create_token-tutorial-2.md>
 
 - **Tutorial 5: Create Simple DAO**
   - This is the first part of several where we try to build a simpleDAO (People with a governance token) will have the power to vote a proposal (First part will be a fixed proposal).
   - We will use Tokens, smart contracts, some html, javascript or GODOT prefixed environment to test it.
-        - **--------->  UNDER CONSTRUCTION  <-------------**
+    - **--------->  UNDER CONSTRUCTION  <-------------**
 {}
 by @JOSUA

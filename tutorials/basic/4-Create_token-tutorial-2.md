@@ -53,8 +53,8 @@
   The Splitter function uses transactions internally, that means that the change back have to be managed by yourself instead of when you use "send" command, it does all this automatically for you.
    - **Coind ID ** this field identify which coin of all you coins you have (minimal unit) are you going to use to split in smaller units.
    How can we know the minimal units of coins we have as the command "balance" only shows the sum of them?
-    - The solution, a new minima command: ` coins relevant:true ` , a minima node keeps track of all coins, tokens or scripts related to your node, so this command shows precisely that, all coins you have and their wallet addresses and more info, but we are only interested in three fields ("coinid, amount and tokenid "), in our case, the goal is to split 1 minima into smaller units, so we need to focus on find a coinid which amount is 1 or bigger and his tokenid is 0x00(means is a Minima token).
-    So after executing the command if we look for the output we can find somthing like the following output, we are going to choose the second one as the first one only have "0.33" minimas and we need more, so the second one has "91.815999" minimas.
+    - The solution, a new minima command: ` coins relevant:true ` , a minima node keeps track of all coins, tokens or scripts related to your node, so this command shows precisely that, all coins you have and their wallet addresses and more info, but we are only interested in four fields **("coinid, amount,tokenid and address")**, in our case, the goal is to split 1 minima into smaller units, so we need to focus on find a coinid which amount is 1 or bigger and his tokenid is 0x00(means is a Minima token).
+    So after executing the command if we look for the output we can find something like the following output, we are going to choose the second one as the first one only have "0.33" minimas and we need more, so the second one has "91.815999" minimas.
     So thats it, we need the **coinid** and the **amount**(It will be used to calculate the change back internally) and the **address** (Later will be the origin field)
     **coinid: 0x59AE319984F247716E7D10F4AD981D95BEECC7BE536667F9B2BE7B3E8DA583C4**
 ```
@@ -95,10 +95,10 @@
 
    - **Coin Amount** as we talk before it it is about to the amount of minimas we have on the coind we are going to use for split into smaller units so we choose **Coin Amount:91.815999** (note, only choose 8 decimals max)
 
-   -**Minimal Unit** this field is the smaller unit that we are going to use to split the 1 minima into, the only values allowed are 0.1 and 0.01 other values than that will not trigger the function, as the game only use **0.1** and **0.01** units for sending minimas when a gemm is collected.
+   - **Minimal Unit** this field is the smaller unit that we are going to use to split the 1 minima into, the only values allowed are 0.1 and 0.01 other values than that will not trigger the function, as the game only use **0.1** and **0.01** units for sending minimas when a gemm is collected.
 
-   -**Receiver** this field is the wallet address who will receive the small units of 1 minima, it can be your own node if you have the game installed on it or it has to be the node where the game is installed.
-   -**Origin** this field is the wallet address where the Minimas to split are located, explained on the first field **Coin ID**
+   - **Receiver** this field is the wallet address who will receive the small units of 1 minima, it can be your own node if you have the game installed on it or it has to be the node where the game is installed.
+   - **Origin** this field is the wallet address where the Minimas to split are located, explained on the first field **Coin ID**
    **origin: 0xE278554F3843D7DD8CDD8AA5E9556C0DC2D7B07C37A8403CE0AFDDE56E8A5EFC**
    - So now that all parameters are set press **RUN** and if everything is right you should see a very long results like this :
 ```
@@ -272,7 +272,7 @@
 
 ...... and so on...........
 ```
-- 5: **Thats it** now if you run the command ´ coins relevant:true ´ you should see lots of coinid with 0.1 or 0.01 in the response, that means , it all went successfully and now you can play the game fluently without interruptions becouse of UTXO system has been tricked.
+- 5: **Thats it** now if you run the command ` coins relevant:true ` you should see lots of **coinid** with "0.1" or "0.01" in the response, that means , it all went successfully and now you can play the game fluently without interruptions becouse of UTXO system has been tricked.
 
-- **Conclusion** this example is only a proof of concept to show you how powerfull can be the tokens created by yourself and the amazing things that can be done with them, and this is only the begining, becouse we even have started to forsee the powerfull of tokens so there is a part we haven't studied yet, that are scripts, every token can have an smart contract (script) that has his own and pwerfull language so imagine the amazing thing that can be done.
+- **Conclusion** this example is only a proof of concept to show you how powerfull can be the tokens created by yourself and the amazing things that can be done with them, and this is only the begining, becouse  we even have started to forsee the powerful of tokens so there is a part we haven't studied yet, that are scripts, every token can have a smart contract (script) that has his own and powerful language so imagine the amazing thing that can be done.
 Just one, imagine that the game received a publicity token and that publicity were embbeded into the game when the token was received ................
