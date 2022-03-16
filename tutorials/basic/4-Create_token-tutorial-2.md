@@ -51,7 +51,7 @@
 
   - Lets going to define the fields and their meaning of the Splitter function, some of they are very important, **and you need to be carefully and pay attention on what you do !!**.
   The Splitter function uses transactions internally, that means that the change back have to be managed by yourself instead of when you use "send" command, it does all this automatically for you.
-   - **Coind ID ** this field identify which coin of all you coins you have (minimal unit) are you going to use to split in smaller units.
+   - **Coind ID** this field identify which coin of all you coins you have (minimal unit) are you going to use to split in smaller units.
    How can we know the minimal units of coins we have as the command "balance" only shows the sum of them?
     - The solution, a new minima command: ` coins relevant:true ` , a minima node keeps track of all coins, tokens or scripts related to your node, so this command shows precisely that, all coins you have and their wallet addresses and more info, but we are only interested in four fields **("coinid, amount,tokenid and address")**, in our case, the goal is to split 1 minima into smaller units, so we need to focus on find a coinid which amount is 1 or bigger and his tokenid is 0x00(means is a Minima token).
     So after executing the command if we look for the output we can find something like the following output, we are going to choose the second one as the first one only have "0.33" minimas and we need more, so the second one has "91.815999" minimas.
@@ -276,3 +276,9 @@
 
 - **Conclusion** this example is only a proof of concept to show you how powerfull can be the tokens created by yourself and the amazing things that can be done with them, and this is only the begining, becouse  we even have started to forsee the powerful of tokens so there is a part we haven't studied yet, that are scripts, every token can have a smart contract (script) that has his own and powerful language so imagine the amazing thing that can be done.
 Just one, imagine that the game received a publicity token and that publicity were embbeded into the game when the token was received ................
+
+------------------------------------------------------------
+##### Ask for 2 minima on minima discord "#app-chat" channel and someone DM you and ask for your address to send 2 minima, once finished the tutorial, do the same to help other people to learn, that's the minima community philosophy, help each other.
+------------------------------------------------------------
+
+by @JOSUA
