@@ -57,7 +57,7 @@
     So after executing the command if we look for the output we can find somthing like the following output, we are going to choose the second one as the first one only have "0.33" minimas and we need more, so the second one has "91.815999" minimas.
     So thats it, we need the **coinid** and the **amount**(It will be used to calculate the change back internally) and the **address** (Later will be the origin field)
     **coinid: 0x59AE319984F247716E7D10F4AD981D95BEECC7BE536667F9B2BE7B3E8DA583C4**
-    ´´´
+```
     coins relevant:true
     {
       "command":"coins",
@@ -91,7 +91,7 @@
         "spent":false,
         "created":"203728"
       },
-    ´´´
+```
 
    - **Coin Amount** as we talk before it it is about to the amount of minimas we have on the coind we are going to use for split into smaller units so we choose **Coin Amount:91.815999** (note, only choose 8 decimals max)
 
@@ -101,7 +101,7 @@
    -**Origin** this field is the wallet address where the Minimas to split are located, explained on the first field **Coin ID**
    **origin: 0xE278554F3843D7DD8CDD8AA5E9556C0DC2D7B07C37A8403CE0AFDDE56E8A5EFC**
    - So now that all parameters are set press **RUN** and if everything is right you should see a very long results like this :
-´´´
+```
    [ {
 "command": "txncreate",
 "params": {
@@ -271,5 +271,8 @@
 "id": "303657912"
 
 ...... and so on...........
-´´´
--5: **Thats it** now if you run the command ´ coins relevant:true ´ you should see lots of coinid with 0.1 or 0.01 in the response, that means , it all went successfully and now you can play the game fluently without interruptions becouse of UTXO system has been tricked.
+```
+- 5: **Thats it** now if you run the command ´ coins relevant:true ´ you should see lots of coinid with 0.1 or 0.01 in the response, that means , it all went successfully and now you can play the game fluently without interruptions becouse of UTXO system has been tricked.
+
+- **Conclusion** this example is only a proof of concept to show you how powerfull can be the tokens created by yourself and the amazing things that can be done with them, and this is only the begining, becouse we even have started to forsee the powerfull of tokens so there is a part we haven't studied yet, that are scripts, every token can have an smart contract (script) that has his own and pwerfull language so imagine the amazing thing that can be done.
+Just one, imagine that the game received a publicity token and that publicity were embbeded into the game when the token was received ................
