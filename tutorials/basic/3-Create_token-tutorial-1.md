@@ -2,9 +2,9 @@
 ### **Tutorial 3**: Learning how to create Tokens, before, **you need one 1 minima** (in fact a very low fraction of it)
 #### The important part here, is to watch for the console's prompt results when executing the command to create the tokens.
 ------------------------------------------------------------
-- 1: **Execute** the command ` tokencreate name:JOSUA amount:1000 decimals:4 ` 
+- 1: **Execute** the command ` tokencreate name:JOSUA amount:1000 decimals:4 `
   - This command creates 1000 token units called "JOSUA" with 4 decimals, and what really will happen is that a transaction will be created.
-  - Transactions have **inputs** and **outputs** , in that case, **inputs** will contain the coin used to generate de Tokens and the amount of them, while **outputs** will contain the amount of spended(sended)coins/token. 
+  - Transactions have **inputs** and **outputs** , in that case, **inputs** will contain the coin used to generate de Tokens and the amount of them, while **outputs** will contain the amount of spended(sended)coins/token.
   - There is a rule a transaction must satisfy: **Inputs must be lower or equal than outputs**
   - It has 2 outputs, one for the exact amount of minima coins used to create the tokens and the other for the amount that needs to be returned as change back (the amount of minima not used to create the tokens, as UTXO works that way).
 
@@ -87,5 +87,7 @@
 ------------------------------------------------------------
 ##### Ask for 1 minima on minima discord "#app-chat" channel and someone DM you and ask for your address to send 1 minima, once finished the tutorial, do the same to help other people to learn, that's the minima community philosophy, help each other.
 ------------------------------------------------------------
+
+- Go back to tutorials page: <https://github.com/elledaniels/Minima-tutorials>
 
 by @JOSUA

@@ -28,4 +28,6 @@ send address:0xB468DFB25129817205BF33772379648837FC9E2483C9280EE8A666145530B426 
 ##### Ask for some tokens on minima discord "#app-chat" channel and someone DM you and ask for your address to send 1 minima, once finished the tutorial, do the same to help other people to learn, that's the minima community philosophy, help each other.
 ------------------------------------------------------------
 
+- Go back to tutorials page: <https://github.com/elledaniels/Minima-tutorials>
+
 by @JOSUA
